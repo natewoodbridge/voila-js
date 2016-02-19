@@ -1,6 +1,6 @@
-/**
+/*!
  * Voila
- * 0.1
+ * 0.1.1
  *
  * Tiny library used to run sections of code only when certain classes exsist in the body tag
  * Code can also be saved the an object and retried at a later point
@@ -12,7 +12,7 @@
 function Voila() {
 	// Try and keep the properities clean
 	this.settings = {
-		version: '0.0',
+		version: '0.1',
 		debug: false
 	};
 
