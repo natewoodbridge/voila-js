@@ -1,0 +1,18 @@
+{
+  "name": "voila-js",
+  "description": "Wrap javascript code to only fire on certain Wordpress sections/pages",
+  "main": "voila.js",
+  "authors": [
+    "NIW London (nate@niwlondon.com)"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/niwlondon/voila.js",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

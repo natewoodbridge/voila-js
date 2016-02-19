@@ -1,6 +1,6 @@
 /**
  * Voila
- * 1.0
+ * 0.1
  *
  * Tiny library used to run sections of code only when certain classes exsist in the body tag
  * Code can also be saved the an object and retried at a later point
