@@ -1,8 +1,9 @@
 /*!
  * Voila
- * 0.1.1
+ * @version 0.1.2
+ * @author NIW London (nate@niwlondon.com)
  *
- * Tiny library used to run sections of code only when certain classes exsist in the body tag
+ * @description Tiny library used to run sections of code only when certain classes exsist in the body tag
  * Code can also be saved the an object and retried at a later point
  * The class contains settings and cache as well, all useful for making sites
  *
