@@ -53,5 +53,4 @@ voila.when('test', function() {
 });
 ```
 
-Enojy! 
-Nate
+Enojy!

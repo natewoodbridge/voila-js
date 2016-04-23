@@ -13,7 +13,7 @@
 function Voila() {
 	// Try and keep the properities clean
 	this.settings = {
-		version: '0.1.0',
+		version: '0.0.0',
 		debug: false
 	};
 
