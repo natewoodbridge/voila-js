@@ -48,7 +48,7 @@ voila.when('single', function() {
 	voila.run('name', ['mark', 'smith']);
 });
 
-voila.when(['test1', 'test2], function() {
+voila.when(['test1', 'test2'], function() {
 	console.log('this wont be run');
 });
 ```
