@@ -1,8 +1,9 @@
 /*!
  * Voila
- * @version 0.1.2
+ * @preserve
+ * @version 0.1.3
  * @author NIW London (nate@niwlondon.com)
- *
+ * 
  * @description Tiny library used to run sections of code only when certain classes exsist in the body tag
  * Code can also be saved the an object and retried at a later point
  * The class contains settings and cache as well, all useful for making sites
@@ -13,7 +14,7 @@
 function Voila() {
 	// Try and keep the properities clean
 	this.settings = {
-		version: '0.0.0',
+		version: null,
 		debug: false
 	};
 
@@ -25,11 +26,11 @@ function Voila() {
 	this.savedFunctions = {};
 
 	// For wordpress, the events list is made up of classes found in the body classes
-	this.eventsList = [];
+	this._eventsList = [];
 	var that = this;
 
 	jQuery.each(document.body.className.split(/\s+/), function(i, classname) {
-    	jQuery.merge(that.eventsList, [classname]);
+    	jQuery.merge(that._eventsList, [classname]);
 	});
 }
 
@@ -37,7 +38,7 @@ function Voila() {
  * Finds the single event in eventList
  */
 Voila.prototype.findEvent = function(name) {
-	if(name === 'global' || jQuery.inArray(name, this.eventsList) != -1) {
+	if(name === 'global' || jQuery.inArray(name, this._eventsList) != -1) {
 		return true;
 
 	} else {

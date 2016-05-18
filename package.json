@@ -1,10 +1,10 @@
 {
   "name": "voila.js",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Wrap javascript code to only fire on certain Wordpress sections/pages",
   "main": "voila.js",
   "scripts": {
-    "build": "uglifyjs --compress --mangle -o voila.min.js -- voila.js"
+    "build": "uglifyjs --compress --mangle --comments -o voila.min.js -- voila.js"
   },
   "repository": {
     "type": "git",
