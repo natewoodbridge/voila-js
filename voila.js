@@ -1,7 +1,7 @@
 /*!
  * Voila
  * @preserve
- * @version 0.1.4
+ * @version 0.1.5
  * @author NIW London (nate@niwlondon.com)
  * 
  * @description Tiny library used to run sections of code only when certain classes exsist in the body tag
@@ -21,13 +21,10 @@ function Voila() {
 	this.cache = {};
 	this.savedFunctions = {};
 
-	// For wordpress, the events list is made up of classes found in the body classes
 	this._eventsList = [];
-	var that = this;
 
-	Array.prototype.forEach.call(document.body.className.split(/\s+/), function(classname, i){
-		that._eventsList.push([classname]);
-	});
+	// For wordpress, the events list is made up of classes found in the body classes
+	this._eventsList = document.body.className.split(/\s+/);
 }
 
 /*
@@ -50,7 +47,7 @@ Voila.prototype.checkEvents = function(name) {
 		fire = false;
 
 	// If an array is given, work through each index item
-	if(this._eventsList.indexOf(name)) {
+	if(	Array.isArray(name) ) {
 
 		Array.prototype.forEach.call(name, function(single, i) {
 			fire = that.findEvent(single) ? true : fire;
