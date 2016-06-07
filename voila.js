@@ -1,7 +1,7 @@
 /*!
  * Voila
  * @preserve
- * @version 0.1.5
+ * @version 0.1.6
  * @author NIW London (nate@niwlondon.com)
  * 
  * @description Tiny library used to run sections of code only when certain classes exsist in the body tag
@@ -67,7 +67,8 @@ Voila.prototype.checkEvents = function(name) {
  * For any code in the callbacks, this will be equal to the Voila class
  */
 Voila.prototype.when = function(events, cb, onReady) {
-	var fire;
+	var fire,
+		_this = this;
 
 	// Defaults to running callback in the jQuery ready wrapper (if jQuery avalaible)
 	onReady = typeof onReady === "undefined" ? true : onReady;
@@ -78,11 +79,11 @@ Voila.prototype.when = function(events, cb, onReady) {
 		if(onReady) {
 			if( typeof jQuery === 'function') {
 				jQuery(document).on('ready', function() {
-					cb.call(this);
+					cb.call(_this);
 				});
 			} else {
 				document.addEventListener("DOMContentLoaded", function() {
-					cb.call(this);
+					cb.call(_this);
 				});
 			}
 		} else {

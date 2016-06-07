@@ -1,6 +1,6 @@
 {
   "name": "voila.js",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Wrap javascript code to only fire on certain Wordpress sections/pages",
   "main": "voila.js",
   "scripts": {
