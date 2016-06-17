@@ -1,7 +1,7 @@
 /*!
  * Voila
  * @preserve
- * @version 0.1.7
+ * @version 0.1.8
  * @author NIW London (nate@niwlondon.com)
  * 
  * @description Tiny library used to run sections of code only when certain classes exsist in the body tag
@@ -102,17 +102,14 @@ Voila.prototype.save = function(name, cb) {
 };
 
 /*
- * Run a saved function. The arg needs to be provided as an array
+ * Run a saved function.
+ * The arg needs to be provided as an array
  */
 Voila.prototype.run = function(name, args) {
 	var run;
 
 	run = name !== '';
 	run = run && typeof this.savedFunctions[name] === 'function';
-
-	if(	! Array.isArray(args) ) {
-		args = [args];
-	}
 
 	if(run) {
 		return this.savedFunctions[name].apply(this, args);
@@ -121,4 +118,4 @@ Voila.prototype.run = function(name, args) {
 
 // add default object to window, can create as many instances as possible
 // and... Voila
-window.voila = new Voila();
+window.v = new Voila();
