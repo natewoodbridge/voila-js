@@ -1,6 +1,6 @@
 {
   "name": "voila.js",
-  "version": "0.1.9",
+  "version": "0.2.0",
   "description": "Wrap javascript code to only fire on certain Wordpress sections/pages",
   "main": "voila.js",
   "scripts": {
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://niwlondon@github.com/niwlondon/voila.js.git"
+    "url": "git+https://natewoodbridge@github.com/natewoodbridge/voila.js.git"
   },
-  "author": "NIW London (nate@niwlondon.com)",
+  "author": "Nate Woodbridge (hi@natewoodbridge.com)",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/niwlondon/voila.js/issues"
+    "url": "https://github.com/natewoodbridge/voila.js/issues"
   },
-  "homepage": "https://github.com/niwlondon/voila.js#readme",
+  "homepage": "https://github.com/natewoodbridge/voila.js#readme",
   "devDependencies": {
     "uglify-js": "^2.6.1"
   }

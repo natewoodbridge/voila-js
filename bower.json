@@ -3,10 +3,10 @@
   "description": "Wrap javascript code to only fire on certain Wordpress sections/pages",
   "main": "voila.js",
   "authors": [
-    "NIW London (nate@niwlondon.com)"
+    "Nate Woodbridge (hi@natewoodbridge.com)"
   ],
   "license": "ISC",
-  "homepage": "https://github.com/niwlondon/voila.js",
+  "homepage": "https://github.com/natewoodbridge/voila.js",
   "moduleType": [],
   "ignore": [
     "**/.*",

@@ -1,8 +1,8 @@
 /*!
  * Voila
  * @preserve
- * @version 0.1.9
- * @author NIW London (nate@niwlondon.com)
+ * @version 0.2.0
+ * @author Nate Woodbridge (hi@natewoodbridge.com)
  * 
  * @description Tiny library used to run sections of code only when certain classes exsist in the body tag
  * Code can also be saved the an object and retried at a later point
