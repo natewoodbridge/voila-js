@@ -1,7 +1,7 @@
 /*!
  * Voila
  * @preserve
- * @version 0.2.0
+ * @version 0.3.0
  * @author Nate Woodbridge (hi@natewoodbridge.com)
  * 
  * @description Tiny library used to run sections of code only when certain classes exsist in the body tag
@@ -14,90 +14,91 @@
 function Voila() {
 	// Try and keep the properties clean
 	this.settings = {
-		version: null,
 		debug: false
 	};
 
-	this.cache = {};
-	this.savedFunctions = {};
-
+	this._savedMethods = {};
 	this._eventsList = [];
 
-	// For wordpress, the events list is made up of classes found in the body classes
+	// Populate the array with body classes, other events be added after class set up
 	this._eventsList = document.body.className.split(/\s+/);
 }
 
 /*
- * Finds the single event in eventList
+ * Checks to see if event name exists in the _eventsList
+ * Can only pass a string
  */
-Voila.prototype.findEvent = function(name) {
-	if(name === 'global' || this._eventsList.indexOf(name) != -1) {
+Voila.prototype.eventExists = function(name) {
+	if(name === 'global' || name === 'common' || name === 'finalize' || this._eventsList.indexOf(name) !== -1) {
 		return true;
-
 	} else {
 		return false;
 	}
 };
 
 /*
- * Returns if the event input matches anything in the event list
+ * Checks a passed string/array against the events list, if any matches found, returns true
  */
 Voila.prototype.checkEvents = function(name) {
 	var that = this,
-		fire = false;
+		match = false;
 
-	// If an array is given, work through each index item
+	// If an array is given, work through each item
 	if(	Array.isArray(name) ) {
 
 		Array.prototype.forEach.call(name, function(single, i) {
-			fire = that.findEvent(single) ? true : fire;
+			match = that.eventExists(single) ? true : match;
 
 		});
 
 	} else {
-		fire = that.findEvent(name) ? true : fire;
+
+		match = that.eventExists(name) ? true : match;
+
 	}
 
-	// Variables used so the event only ever fires once
-	return fire;
+	// Variables used so the event only ever matches once
+	return match;
 };
 
 /*
- * Acts as wrapper to ensure code is only run if exsists in the event list
- * For any code in the callbacks, this will be equal to the Voila class
+ * Code will only be run if event is found in the list
+ * For any code in the callbacks, `this` will be equal to the Voila class
  */
 Voila.prototype.when = function(events, cb, onReady) {
 	var fire,
-		_this = this;
+		that = this;
 
-	// Defaults to running callback in the jQuery ready wrapper (if jQuery avalaible)
-	onReady = typeof onReady === "undefined" ? true : onReady;
+	// Defaults to running callback in the jQuery ready wrapper (if jQuery is avalaible)
+	var runOnReady = ( typeof onReady === "undefined" ? true : onReady );
 
 	fire = this.checkEvents(events) && typeof events !== 'undefined' && typeof cb === 'function';
 
 	if(fire) {
-		if(onReady) {
-			if( typeof jQuery === 'function') {
+		if(runOnReady) {
+			if( typeof jQuery === 'function' ) {
 				jQuery(document).on('ready', function() {
-					cb.call(_this);
+					cb.call(that);
 				});
 			} else {
 				document.addEventListener("DOMContentLoaded", function() {
-					cb.call(_this);
+					cb.call(that);
 				});
 			}
 		} else {
 			cb.call(this);
 		}
 	}
+
+	return false;
 };
 
 /*
  * Save a function to a Voila method for use later
  */
-Voila.prototype.save = function(name, cb) {
+Voila.prototype.saveMethod = function(name, cb) {
 	if(typeof cb === 'function') {
-		this.savedFunctions[name] = cb;
+		this._savedMethods[name] = cb;
 	}
 };
 
@@ -105,17 +106,16 @@ Voila.prototype.save = function(name, cb) {
  * Run a saved function.
  * The arg needs to be provided as an array
  */
-Voila.prototype.run = function(name, args) {
-	var run;
+Voila.prototype.runMethod = function(name, args) {
+	var run = false;
 
 	run = name !== '';
-	run = run && typeof this.savedFunctions[name] === 'function';
+	run = run && typeof this._savedMethods[name] === 'function';
 
 	if(run) {
-		return this.savedFunctions[name].apply(this, args);
+		return this._savedMethods[name].apply(this, args);
 	}
 };
 
-// add default object to window, can create as many instances as possible
-// and... Voila
-window.voila = new Voila();
+// You need to inti the class
+// var voila = new Voila();
