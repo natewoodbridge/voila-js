@@ -12,7 +12,7 @@
  */
 
 function Voila() {
-	// Try and keep the properities clean
+	// Try and keep the properties clean
 	this.settings = {
 		version: null,
 		debug: false
