@@ -53,4 +53,4 @@ voila.saveMethod('name', function(first, last) {
 ```
 
 ## Todo
-[] Ensure document.body works when JS is in header
+- [] Ensure document.body works when JS is in header
