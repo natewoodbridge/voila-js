@@ -51,3 +51,6 @@ voila.saveMethod('name', function(first, last) {
 	console.log('name', first, last);
 });
 ```
+
+## Todo
+[] Ensure document.body works when JS is in header
