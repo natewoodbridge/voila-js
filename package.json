@@ -1,7 +1,7 @@
 {
-  "name": "voila.js",
-  "version": "0.3.0",
-  "description": "Wrap javascript code to only fire on certain Wordpress sections/pages",
+  "name": "voila-js",
+  "version": "0.4.0",
+  "description": "Wrap javascript code to only fire on when certain body classes are present, e.g. for Wordpress sections/pages",
   "main": "voila.js",
   "scripts": {
     "build": "uglifyjs --compress --mangle --comments -o voila.min.js -- voila.js"

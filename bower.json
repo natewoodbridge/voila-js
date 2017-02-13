@@ -1,6 +1,6 @@
 {
   "name": "voila-js",
-  "description": "Wrap javascript code to only fire on certain Wordpress sections/pages",
+  "description": "Wrap javascript code to only fire on when certain body classes are present, e.g. for Wordpress sections/pages",
   "main": "voila.js",
   "authors": [
     "Nate Woodbridge (hi@natewoodbridge.com)"
