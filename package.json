@@ -1,6 +1,6 @@
 {
   "name": "voila-js",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Wrap javascript code to only fire on when certain body classes are present, e.g. for Wordpress sections/pages",
   "main": "voila.js",
   "scripts": {
