@@ -1,7 +1,7 @@
 /*!
  * Voila
  * @preserve
- * @version 0.4.0
+ * @version 0.4.1
  * @author Nate Woodbridge (hi@natewoodbridge.com)
  * 
  * @description Tiny library used to run sections of code only when certain classes exsist in the body tag
@@ -15,11 +15,11 @@
 
 (function(factory) {
     if (typeof define === 'function' && define.amd) {
-		define(factory);
+		define(factory());
 	} else if (typeof exports !== 'undefined') {
-		module.exports = factory;
+		module.exports = factory();
 	} else {
-		window.voilajs = factory;
+		window.voilajs = factory();
 	}
 }(function($) {
 
