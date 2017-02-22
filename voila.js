@@ -1,7 +1,7 @@
 /*!
  * Voila
  * @preserve
- * @version 0.4.1
+ * @version 0.4.2
  * @author Nate Woodbridge (hi@natewoodbridge.com)
  * 
  * @description Tiny library used to run sections of code only when certain classes exsist in the body tag
@@ -21,7 +21,7 @@
 	} else {
 		window.voilajs = factory();
 	}
-}(function($) {
+}(function() {
 
 	function Voila() {
 		// Try and keep the properties clean
@@ -91,7 +91,7 @@
 		if(fire) {
 			if(runOnReady) {
 				if( typeof jQuery === 'function' ) {
-					jQuery(document).on('ready', function() {
+					jQuery(document).ready(function() {
 						cb.call(that);
 					});
 				} else {
